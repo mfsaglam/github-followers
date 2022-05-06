@@ -8,6 +8,10 @@
 import UIKit
 
 class SearchVC: UIViewController {
+    
+    let logoImageView = UIImageView()
+    let textField = GFTextField()
+    let button = GFButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
