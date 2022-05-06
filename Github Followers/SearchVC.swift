@@ -12,9 +12,14 @@ class SearchVC: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let getFollowersButton = GFButton(color: .systemGreen, title: "Get Followers")
+    
+    var isUsernameEntered: Bool {
+        return !usernameTextField.text!.isEmpty
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDelegates()
         configureUI()
         createDismissKeyboardTapGesture()
     }
@@ -29,12 +34,31 @@ class SearchVC: UIViewController {
         view.addGestureRecognizer(tapGesture )
     }
     
+    @objc func pushFollowerListVC() {
+        
+        guard isUsernameEntered else {
+            print("No username entered")
+            return
+        }
+        
+        let followerListVC = FollowerListVC()
+        followerListVC.username = usernameTextField.text
+        followerListVC.title = usernameTextField.text
+        navigationController?.pushViewController(followerListVC, animated: true)
+    }
+    
+    private func configureDelegates() {
+        usernameTextField.delegate = self
+    }
+    
     private func configureUI() {
         view.backgroundColor = .systemBackground
 
         view.addSubview(logoImageView)
         view.addSubview(usernameTextField)
         view.addSubview(getFollowersButton)
+        
+        getFollowersButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside )
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = UIImage(named: "gh-logo")
@@ -59,5 +83,13 @@ class SearchVC: UIViewController {
             getFollowersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
             getFollowersButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+}
+
+extension SearchVC: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        pushFollowerListVC()
+        return true
     }
 }

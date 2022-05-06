@@ -15,6 +15,7 @@
 		129BA804281F358B005251B7 /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129BA803281F358A005251B7 /* GFTextField.swift */; };
 		12F353BC2824DF5F0055F5EA /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F353BB2824DF5F0055F5EA /* SearchVC.swift */; };
 		12F353BE2824DF7A0055F5EA /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F353BD2824DF7A0055F5EA /* FavoritesListVC.swift */; };
+		12F64E6128254160002FA80B /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F64E6028254160002FA80B /* FollowerListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		129BA803281F358A005251B7 /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
 		12F353BB2824DF5F0055F5EA /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		12F353BD2824DF7A0055F5EA /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		12F64E6028254160002FA80B /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				12F353BB2824DF5F0055F5EA /* SearchVC.swift */,
 				12F353BD2824DF7A0055F5EA /* FavoritesListVC.swift */,
 				12087DFB28250BAC00ED8EBE /* GFButton.swift */,
+				12F64E6028254160002FA80B /* FollowerListVC.swift */,
 			);
 			path = "Github Followers";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				12F353BC2824DF5F0055F5EA /* SearchVC.swift in Sources */,
 				12087DFC28250BAC00ED8EBE /* GFButton.swift in Sources */,
 				129BA7F0281F325A005251B7 /* AppDelegate.swift in Sources */,
+				12F64E6128254160002FA80B /* FollowerListVC.swift in Sources */,
 				129BA804281F358B005251B7 /* GFTextField.swift in Sources */,
 				129BA7F2281F325A005251B7 /* SceneDelegate.swift in Sources */,
 			);
