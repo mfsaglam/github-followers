@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12087DFC28250BAC00ED8EBE /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12087DFB28250BAC00ED8EBE /* GFButton.swift */; };
 		129BA7F0281F325A005251B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129BA7EF281F325A005251B7 /* AppDelegate.swift */; };
 		129BA7F2281F325A005251B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129BA7F1281F325A005251B7 /* SceneDelegate.swift */; };
 		129BA7F9281F325D005251B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 129BA7F8281F325D005251B7 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12087DFB28250BAC00ED8EBE /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		129BA7EC281F325A005251B7 /* Github Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		129BA7EF281F325A005251B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		129BA7F1281F325A005251B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				129BA7FD281F325D005251B7 /* Info.plist */,
 				12F353BB2824DF5F0055F5EA /* SearchVC.swift */,
 				12F353BD2824DF7A0055F5EA /* FavoritesListVC.swift */,
+				12087DFB28250BAC00ED8EBE /* GFButton.swift */,
 			);
 			path = "Github Followers";
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				12F353BE2824DF7A0055F5EA /* FavoritesListVC.swift in Sources */,
 				12F353BC2824DF5F0055F5EA /* SearchVC.swift in Sources */,
+				12087DFC28250BAC00ED8EBE /* GFButton.swift in Sources */,
 				129BA7F0281F325A005251B7 /* AppDelegate.swift in Sources */,
 				129BA804281F358B005251B7 /* GFTextField.swift in Sources */,
 				129BA7F2281F325A005251B7 /* SceneDelegate.swift in Sources */,
