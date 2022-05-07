@@ -36,6 +36,7 @@ class GFAlertVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
         configureContainerView()
+        configureAlertView()
     }
     
     @objc func dismissVC() {
