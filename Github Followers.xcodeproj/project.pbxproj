@@ -81,8 +81,6 @@
 				12D827672827BBF600B11E7D /* Extensions */,
 				12D827662827B60900B11E7D /* Custom Views */,
 				12D827652827B5DE00B11E7D /* Screens */,
-				129BA7F8281F325D005251B7 /* Assets.xcassets */,
-				129BA7FA281F325D005251B7 /* LaunchScreen.storyboard */,
 				129BA7FD281F325D005251B7 /* Info.plist */,
 			);
 			path = "Github Followers";
@@ -122,6 +120,8 @@
 		12D827682827BC6200B11E7D /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				129BA7F8281F325D005251B7 /* Assets.xcassets */,
+				129BA7FA281F325D005251B7 /* LaunchScreen.storyboard */,
 				129BA7EF281F325A005251B7 /* AppDelegate.swift */,
 				129BA7F1281F325A005251B7 /* SceneDelegate.swift */,
 			);
