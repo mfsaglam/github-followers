@@ -70,22 +70,54 @@
 		129BA7EE281F325A005251B7 /* Github Followers */ = {
 			isa = PBXGroup;
 			children = (
-				129BA7EF281F325A005251B7 /* AppDelegate.swift */,
-				129BA7F1281F325A005251B7 /* SceneDelegate.swift */,
-				129BA803281F358A005251B7 /* GFTextField.swift */,
+				12D827682827BC6200B11E7D /* Support */,
+				12D827672827BBF600B11E7D /* Extensions */,
+				12D827662827B60900B11E7D /* Custom Views */,
+				12D827652827B5DE00B11E7D /* Screens */,
 				129BA7F8281F325D005251B7 /* Assets.xcassets */,
 				129BA7FA281F325D005251B7 /* LaunchScreen.storyboard */,
 				129BA7FD281F325D005251B7 /* Info.plist */,
+			);
+			path = "Github Followers";
+			sourceTree = "<group>";
+		};
+		12D827652827B5DE00B11E7D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
 				12F353BB2824DF5F0055F5EA /* SearchVC.swift */,
+				12F64E6028254160002FA80B /* FollowerListVC.swift */,
 				12F353BD2824DF7A0055F5EA /* FavoritesListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		12D827662827B60900B11E7D /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
 				12087DFB28250BAC00ED8EBE /* GFButton.swift */,
 				126BB997282650B600363534 /* GFTitleLabel.swift */,
 				126BB9992826540600363534 /* GFBodyLabel.swift */,
+				129BA803281F358A005251B7 /* GFTextField.swift */,
 				126BB99B2826552300363534 /* GFAlertVC.swift */,
-				126BB99D282669DB00363534 /* UIViewController+Ext.swift */,
-				12F64E6028254160002FA80B /* FollowerListVC.swift */,
 			);
-			path = "Github Followers";
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		12D827672827BBF600B11E7D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				126BB99D282669DB00363534 /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12D827682827BC6200B11E7D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				129BA7EF281F325A005251B7 /* AppDelegate.swift */,
+				129BA7F1281F325A005251B7 /* SceneDelegate.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
