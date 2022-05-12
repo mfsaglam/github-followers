@@ -61,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1230E88D282D5D1B00A4903B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				12637723282983550035BB7A /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		12637728282A9FD60035BB7A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +96,7 @@
 		129BA7EE281F325A005251B7 /* Github Followers */ = {
 			isa = PBXGroup;
 			children = (
+				1230E88D282D5D1B00A4903B /* Managers */,
 				12637728282A9FD60035BB7A /* Utilities */,
 				12D8276D2827DC4F00B11E7D /* Model */,
 				12D827682827BC6200B11E7D /* Support */,
@@ -95,7 +104,6 @@
 				12D827662827B60900B11E7D /* Custom Views */,
 				12D827652827B5DE00B11E7D /* Screens */,
 				129BA7FD281F325D005251B7 /* Info.plist */,
-				12637723282983550035BB7A /* NetworkManager.swift */,
 			);
 			path = "Github Followers";
 			sourceTree = "<group>";
