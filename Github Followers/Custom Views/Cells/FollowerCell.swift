@@ -8,5 +8,5 @@
 import UIKit
 
 class FollowerCell: UICollectionViewCell {
-    
+    static let reuseID = "FollowerCell"
 }
