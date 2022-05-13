@@ -10,10 +10,11 @@ import UIKit
 class FollowerListVC: UIViewController {
     
     var username: String?
-    var collectionView = UICollectionView()
+    var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         
         NetworkManager.shared.getFollowers(for: username ?? "", page: 1) { result in
             switch result {
@@ -29,5 +30,9 @@ class FollowerListVC: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func configureCollectionView() {
+        collectionView = UICollectionView()
     }
 }
