@@ -28,6 +28,10 @@ class FollowerListVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    func getThreeColumnFlowLayout() -> UICollectionViewLayout {
+        return UICollectionViewLayout()
+    }
+    
     private func getFollowers() {
         NetworkManager.shared.getFollowers(for: username ?? "", page: 1) { result in
             switch result {
