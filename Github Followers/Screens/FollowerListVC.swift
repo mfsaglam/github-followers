@@ -16,6 +16,20 @@ class FollowerListVC: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         
+        getFollowers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureViewController()
+    }
+    
+    private func configureViewController() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func getFollowers() {
         NetworkManager.shared.getFollowers(for: username ?? "", page: 1) { result in
             switch result {
             case .success(let followers):
