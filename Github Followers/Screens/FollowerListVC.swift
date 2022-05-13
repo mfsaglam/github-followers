@@ -10,18 +10,10 @@ import UIKit
 class FollowerListVC: UIViewController {
     
     var username: String?
+    var collectionView = UICollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        NetworkManager.shared.getFollowers(for: username ?? "", page: 1) { followers, error in
-//            guard let followers = followers else {
-//                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error?.rawValue ?? "", buttonTitle: "ok")
-//                return
-//            }
-//
-//            print(followers)
-//        }
         
         NetworkManager.shared.getFollowers(for: username ?? "", page: 1) { result in
             switch result {
