@@ -29,7 +29,17 @@ class FollowerListVC: UIViewController {
     }
     
     func getThreeColumnFlowLayout() -> UICollectionViewLayout {
-        return UICollectionViewLayout()
+        let width = view.bounds.width
+        let padding: CGFloat = 12
+        let minimumItemSpacing: CGFloat = 10
+        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
+        let itemWidth = availableWidth / 3
+        let itemHeight = availableWidth + 40
+        
+        let threeColumnFlowLayout = UICollectionViewFlowLayout()
+        threeColumnFlowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        threeColumnFlowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        return threeColumnFlowLayout
     }
     
     private func getFollowers() {
