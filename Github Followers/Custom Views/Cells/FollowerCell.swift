@@ -13,6 +13,8 @@ class FollowerCell: UICollectionViewCell {
     let avatarImageView = GFAvatarImageView(frame: .zero)
     let usernameLabel = GFTitleLabel(alignment: .center, fontSize: 16)
     
+    let cache = NetworkManager.shared.cache
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -24,6 +26,31 @@ class FollowerCell: UICollectionViewCell {
     
     func set(follower: Follower) {
         usernameLabel.text = follower.login
+        downloadImage(from: follower.avatarUrl)
+    }
+    
+    private func downloadImage(from url: String) {
+        
+        let cacheKey = NSString(string: url)
+        
+        if let image = cache.object(forKey: cacheKey) {
+            avatarImageView.image = image
+            return
+        }
+        
+        guard let url = URL(string: url) else { return }
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else { return }
+            if error != nil { return }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
+            guard let data = data else { return }
+            
+            guard let image = UIImage(data: data) else { return }
+            self.cache.setObject(image, forKey: cacheKey)
+            DispatchQueue.main.async { self.avatarImageView.image = image }
+        }
+
+        task.resume()
     }
     
     private func configure() {
