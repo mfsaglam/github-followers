@@ -44,6 +44,7 @@ class FollowerListVC: UIViewController {
                 self.followers = followers
                 if self.followers.isEmpty {
                     let message = "This user has no followers. Go follow them."
+                    #warning("tabBar doesnt blue the UIImageView")
                     DispatchQueue.main.async {
                         self.showEmptyStateView(with: message, in: self.view)
                         return
