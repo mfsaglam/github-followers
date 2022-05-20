@@ -69,6 +69,7 @@ class FollowerListVC: UIViewController {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search for a username"
+        navigationItem.searchController = searchController
     }
     
     func updateData() {
