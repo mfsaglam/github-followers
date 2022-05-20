@@ -13,8 +13,10 @@ class FollowerListVC: UIViewController {
         case main
     }
     
-    var username: String?
+    var username: String!
     var followers: [Follower] = []
+    var page = 1
+    var hasMoreFollower = true
     
     var diffableDataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     var collectionView: UICollectionView!
@@ -22,7 +24,7 @@ class FollowerListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        getFollowers()
+        getFollowers(username: username, page: page)
         configureDiffableDataSource()
     }
     
@@ -36,12 +38,13 @@ class FollowerListVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func getFollowers() {
-        NetworkManager.shared.getFollowers(for: username ?? "", page: 1) { [weak self] result in
+    private func getFollowers(username: String, page: Int) {
+        NetworkManager.shared.getFollowers(for: self.username ?? "", page: page) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let followers):
-                self.followers = followers
+                if followers.count < 100 { self.hasMoreFollower = false }
+                self.followers.append(contentsOf: followers)
                 self.updateData()
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue , buttonTitle: "ok")
@@ -82,7 +85,9 @@ extension FollowerListVC: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
-            getFollowers()
+            guard hasMoreFollower else { return }
+            page += 1
+            getFollowers(username: username, page: page)
         }
     }
 }
