@@ -24,6 +24,7 @@ class FollowerListVC: UIViewController {
         configureCollectionView()
         getFollowers()
         configureDiffableDataSource()
+        configureSearchController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +65,12 @@ class FollowerListVC: UIViewController {
         }
     }
     
+    func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for a username"
+    }
+    
     func updateData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
@@ -71,5 +78,11 @@ class FollowerListVC: UIViewController {
         DispatchQueue.main.async {
             self.diffableDataSource.apply(snapshot, animatingDifferences: true)
         }
+    }
+}
+
+extension FollowerListVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }
