@@ -15,6 +15,7 @@ class FollowerListVC: UIViewController {
     
     var username: String?
     var followers: [Follower] = []
+    var filteredFollowers : [Follower] = []
     
     var diffableDataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     var collectionView: UICollectionView!
@@ -43,7 +44,7 @@ class FollowerListVC: UIViewController {
             switch result {
             case .success(let followers):
                 self.followers = followers
-                self.updateData()
+                self.updateData(data: followers)
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue , buttonTitle: "ok")
             }
@@ -73,10 +74,10 @@ class FollowerListVC: UIViewController {
         navigationItem.searchController = searchController
     }
     
-    func updateData() {
+    func updateData(data: [Follower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(followers, toSection: .main)
+        snapshot.appendItems(data)
         DispatchQueue.main.async {
             self.diffableDataSource.apply(snapshot, animatingDifferences: true)
         }
@@ -85,6 +86,8 @@ class FollowerListVC: UIViewController {
 
 extension FollowerListVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+        updateData(data: filteredFollowers)
     }
 }
