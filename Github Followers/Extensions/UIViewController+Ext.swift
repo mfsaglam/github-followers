@@ -53,6 +53,5 @@ extension UIViewController {
         let emptyStateView = GFEmptyStateView(message: message)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
-        tabBarController?.tabBar.sendSubviewToBack(emptyStateView)
     }
 }
