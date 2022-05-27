@@ -24,7 +24,8 @@ class UserInfoVC: UIViewController {
     }
     
     func getUser() {
-        NetworkManager.shared.getUser(for: username) { result in
+        NetworkManager.shared.getUser(for: username) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let user):
                 print(user)
