@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1202A98428440C4000225FED /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1202A98328440C4000225FED /* GFRepoItemVC.swift */; };
 		12087DFC28250BAC00ED8EBE /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12087DFB28250BAC00ED8EBE /* GFButton.swift */; };
 		121B4A772834541B00750063 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121B4A762834541B00750063 /* UIHelper.swift */; };
 		1230E890282D5E6500A4903B /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1230E88F282D5E6500A4903B /* FollowerCell.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1202A98328440C4000225FED /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
 		12087DFB28250BAC00ED8EBE /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		121B4A762834541B00750063 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIHelper.swift; path = ../../../../../../Downloads/UIHelper.swift; sourceTree = "<group>"; };
 		1230E88F282D5E6500A4903B /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				126BB99B2826552300363534 /* GFAlertVC.swift */,
+				1202A98328440C4000225FED /* GFRepoItemVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				12D8276F2827DFA400B11E7D /* User.swift in Sources */,
 				129BA7F0281F325A005251B7 /* AppDelegate.swift in Sources */,
 				1230E892282D610000A4903B /* GFAvatarImageView.swift in Sources */,
+				1202A98428440C4000225FED /* GFRepoItemVC.swift in Sources */,
 				12D8276C2827DC4900B11E7D /* Follower.swift in Sources */,
 				12F5637428429C7800F08404 /* UserInfoHeaderVC.swift in Sources */,
 				12F64E6128254160002FA80B /* FollowerListVC.swift in Sources */,
