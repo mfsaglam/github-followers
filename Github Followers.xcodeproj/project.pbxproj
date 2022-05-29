@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1202A98028440AF000225FED /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1202A97F28440AF000225FED /* GFItemInfoView.swift */; };
 		12087DFC28250BAC00ED8EBE /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12087DFB28250BAC00ED8EBE /* GFButton.swift */; };
 		121B4A772834541B00750063 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121B4A762834541B00750063 /* UIHelper.swift */; };
 		1230E890282D5E6500A4903B /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1230E88F282D5E6500A4903B /* FollowerCell.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1202A97F28440AF000225FED /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		12087DFB28250BAC00ED8EBE /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		121B4A762834541B00750063 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIHelper.swift; path = ../../../../../../Downloads/UIHelper.swift; sourceTree = "<group>"; };
 		1230E88F282D5E6500A4903B /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				12D827692827C8A300B11E7D /* ContainerView.swift */,
 				12B84D1C2837CCA000486075 /* GFEmptyStateView.swift */,
+				1202A97F28440AF000225FED /* GFItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				129BA804281F358B005251B7 /* GFTextField.swift in Sources */,
 				1263772A282A9FE80035BB7A /* ErrorMessage.swift in Sources */,
 				12637724282983550035BB7A /* NetworkManager.swift in Sources */,
+				1202A98028440AF000225FED /* GFItemInfoView.swift in Sources */,
 				121B4A772834541B00750063 /* UIHelper.swift in Sources */,
 				129BA7F2281F325A005251B7 /* SceneDelegate.swift in Sources */,
 				126BB99A2826540600363534 /* GFBodyLabel.swift in Sources */,
