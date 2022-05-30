@@ -39,6 +39,12 @@ class FollowerListVC: UIViewController {
     private func configureViewController() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
+        let plusButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = plusButton
+    }
+    
+    @objc func addButtonTapped() {
+        
     }
     
     func getFollowers(username: String, page: Int) {
