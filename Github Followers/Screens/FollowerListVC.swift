@@ -44,7 +44,7 @@ class FollowerListVC: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        
+        print("add button tapped")
     }
     
     func getFollowers(username: String, page: Int) {
