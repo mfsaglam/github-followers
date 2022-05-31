@@ -49,7 +49,7 @@ class UserInfoVC: UIViewController {
     
     func configureUI() {
         let padding: CGFloat = 20
-        let containerHeight: CGFloat = 180
+        let containerHeight: CGFloat = 140
         
         let uiViews: [UIView] = [headerView, itemViewOne, itemViewTwo]
         
@@ -68,7 +68,7 @@ class UserInfoVC: UIViewController {
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: containerHeight),
+            headerView.heightAnchor.constraint(equalToConstant: 180),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: containerHeight),
