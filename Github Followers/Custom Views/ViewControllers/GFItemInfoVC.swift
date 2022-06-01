@@ -17,10 +17,15 @@ class GFItemInfoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
+        layoutUI()
     }
     
-    func configureBackgroundView() {
+    private func configureBackgroundView() {
         view.layer.cornerRadius = 18
         view.backgroundColor = .secondarySystemBackground
+    }
+    
+    private func layoutUI() {
+        
     }
 }
