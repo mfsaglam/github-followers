@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum ItemInfoType {
+    case repos, gists, followers, following
+}
+
 class GFItemInfoView: UIView {
 
     let symbolImageView = UIImageView()
