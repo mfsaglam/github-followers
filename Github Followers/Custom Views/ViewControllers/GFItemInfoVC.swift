@@ -26,6 +26,13 @@ class GFItemInfoVC: UIViewController {
     }
     
     private func layoutUI() {
+        view.addSubview(stackView)
+        view.addSubview(itemInfoViewOne)
+        view.addSubview(itemInfoViewTwo)
+        view.addSubview(actionButton)
         
+        NSLayoutConstraint.activate([
+        
+        ])
     }
 }
