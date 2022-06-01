@@ -52,4 +52,21 @@ class GFItemInfoView: UIView {
             countLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
+    
+    func set(type: ItemInfoType) {
+        switch type {
+        case .repos:
+            symbolImageView.image = UIImage(systemName: "folder")
+            titleLabel.text = "Public repos"
+        case .gists:
+            symbolImageView.image = UIImage(systemName: "text.alignleft")
+            titleLabel.text = "Public gists"
+        case .followers:
+            symbolImageView.image = UIImage(systemName: "heart")
+            titleLabel.text = "Followers"
+        case .following:
+            symbolImageView.image = UIImage(systemName: "person.2")
+            titleLabel.text = "Following"
+        }
+    }
 }
