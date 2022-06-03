@@ -9,4 +9,13 @@ import UIKit
 
 class GFRepoItemVC: GFItemInfoVC {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureItems()
+    }
+    
+    private func configureItems() {
+        itemInfoViewOne.set(type: .repos, with: user.publicRepos)
+        itemInfoViewTwo.set(type: .gists, with: user.publicGists)
+    }
 }

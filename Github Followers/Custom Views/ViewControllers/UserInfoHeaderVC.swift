@@ -20,11 +20,7 @@ class UserInfoHeaderVC: UIViewController {
     
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
-        avatarImageView.downloadImage(from: user.avatarUrl)
-        usernameLabel.text = user.login
-        nameLabel.text = user.name ?? ""
-        locationLabel.text = user.location ?? "No location available"
-        bioLabel.text = user.bio ?? "No bio available"
+        self.user = user
     }
     
     required init?(coder: NSCoder) {
@@ -35,10 +31,15 @@ class UserInfoHeaderVC: UIViewController {
         super.viewDidLoad()
         addSubviews()
         layoutSubviews()
+        setElements(with: user)
     }
     
     func setElements(with user: User) {
-        
+        avatarImageView.downloadImage(from: user.avatarUrl)
+        usernameLabel.text = user.login
+        nameLabel.text = user.name ?? ""
+        locationLabel.text = user.location ?? "No location available"
+        bioLabel.text = user.bio ?? "No bio available"
     }
     
     func addSubviews() {
