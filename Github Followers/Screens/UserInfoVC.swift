@@ -94,3 +94,17 @@ class UserInfoVC: UIViewController {
         childVC.didMove(toParent: self)
     }
 }
+
+extension UserInfoVC: UserInfoVCDelegate {
+    
+    func didTapGithubProfile() {
+        //safari VC
+    }
+    
+    func didTapGetFollowers() {
+        //dismissVC
+        //show followers
+    }
+    
+    
+}
