@@ -10,6 +10,9 @@ import UIKit
 class UserInfoVC: UIViewController {
     
     let headerView = UIView()
+    let itemViewOne = UIView()
+    let itemViewTwo = UIView()
+    
     var username: String!
     
     override func viewDidLoad() {
@@ -45,14 +48,33 @@ class UserInfoVC: UIViewController {
     }
     
     func configureUI() {
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
- 
+        let padding: CGFloat = 20
+        let containerHeight: CGFloat = 140
+        
+        let uiViews: [UIView] = [headerView, itemViewOne, itemViewTwo]
+        
+        itemViewOne.backgroundColor = .systemPink
+        itemViewTwo.backgroundColor = .systemBlue
+        
+        for uiView in uiViews {
+            view.addSubview(uiView)
+            uiView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                uiView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+                uiView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -padding)
+            ])
+        }
+        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180)
+            headerView.heightAnchor.constraint(equalToConstant: 180),
+            
+            itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+            itemViewOne.heightAnchor.constraint(equalToConstant: containerHeight),
+            
+            itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
+            itemViewTwo.heightAnchor.constraint(equalToConstant: containerHeight),
         ])
     }
     
