@@ -53,9 +53,6 @@ class UserInfoVC: UIViewController {
         
         let uiViews: [UIView] = [headerView, itemViewOne, itemViewTwo]
         
-        itemViewOne.backgroundColor = .systemPink
-        itemViewTwo.backgroundColor = .systemBlue
-        
         for uiView in uiViews {
             view.addSubview(uiView)
             uiView.translatesAutoresizingMaskIntoConstraints = false
