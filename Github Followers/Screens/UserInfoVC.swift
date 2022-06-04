@@ -40,6 +40,8 @@ class UserInfoVC: UIViewController {
                 DispatchQueue.main.async {
                     let userInfoHeaderView = UserInfoHeaderVC(user: user)
                     self.add(childVC: userInfoHeaderView, to: self.headerView)
+                    self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
+                    self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "ok")
