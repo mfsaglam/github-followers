@@ -54,7 +54,7 @@ class UserInfoVC: UIViewController {
         let padding: CGFloat = 20
         let containerHeight: CGFloat = 140
         
-        let uiViews: [UIView] = [headerView, itemViewOne, itemViewTwo]
+        let uiViews: [UIView] = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for uiView in uiViews {
             view.addSubview(uiView)
