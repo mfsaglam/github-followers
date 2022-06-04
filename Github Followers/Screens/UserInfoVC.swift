@@ -12,6 +12,7 @@ class UserInfoVC: UIViewController {
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
+    let dateLabel = GFBodyLabel(alignment: .center)
     
     var username: String!
     
@@ -42,6 +43,7 @@ class UserInfoVC: UIViewController {
                     self.add(childVC: userInfoHeaderView, to: self.headerView)
                     self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
                     self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+                    self.dateLabel.text = "GitHub Since \(user.createdAt.convertToDate()?.convertToMonthYearFormat() ?? "N/A")"
                 }
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "ok")
@@ -53,7 +55,7 @@ class UserInfoVC: UIViewController {
         let padding: CGFloat = 20
         let containerHeight: CGFloat = 140
         
-        let uiViews: [UIView] = [headerView, itemViewOne, itemViewTwo]
+        let uiViews: [UIView] = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for uiView in uiViews {
             view.addSubview(uiView)
@@ -74,6 +76,9 @@ class UserInfoVC: UIViewController {
             
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor, constant: padding),
             itemViewTwo.heightAnchor.constraint(equalToConstant: containerHeight),
+            
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
