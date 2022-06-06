@@ -16,7 +16,7 @@ class GFItemInfoVC: UIViewController {
     
     var user: User!
     
-    var delegate: UserInfoVCDelegate?
+    weak var delegate: UserInfoVCDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
