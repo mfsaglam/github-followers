@@ -34,6 +34,12 @@ class GFItemInfoVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func configureActionButton() {
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func actionButtonTapped() {}
+    
     private func configureBackgroundView() {
         view.layer.cornerRadius = 18
         view.backgroundColor = .secondarySystemBackground
