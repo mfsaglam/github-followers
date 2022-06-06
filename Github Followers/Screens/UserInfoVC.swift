@@ -21,6 +21,8 @@ class UserInfoVC: UIViewController {
     
     var username: String!
     
+    weak var delegate: FollowerListVCDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -115,7 +117,7 @@ extension UserInfoVC: UserInfoVCDelegate {
     
     func didTapGetFollowers(user: User) {
         //dismissVC
-        //show followers
+        delegate?.didRequestFollowers(for: user.login)
     }
     
     
