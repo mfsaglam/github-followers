@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FollowerListVCDelegate: AnyObject {
+    func didRequestFollowers(for username: String) 
+}
+
 class FollowerListVC: UIViewController {
     
     enum Section {
