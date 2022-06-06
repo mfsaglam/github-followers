@@ -59,8 +59,8 @@ class UserInfoVC: UIViewController {
         followerItemVC.delegate = self
         
         self.add(childVC: userInfoHeaderView, to: self.headerView)
-        self.add(childVC: GFRepoItemVC(user: user), to: self.itemViewOne)
-        self.add(childVC: GFFollowerItemVC(user: user), to: self.itemViewTwo)
+        self.add(childVC: repoItemVC, to: self.itemViewOne)
+        self.add(childVC: followerItemVC, to: self.itemViewTwo)
         self.dateLabel.text = "GitHub Since \(user.createdAt.convertToDate()?.convertToMonthYearFormat() ?? "N/A")"
     }
     
@@ -106,6 +106,7 @@ class UserInfoVC: UIViewController {
 extension UserInfoVC: UserInfoVCDelegate {
     
     func didTapGithubProfile() {
+        print("didTapGithubProfile tapped")
         //safari VC
     }
     
