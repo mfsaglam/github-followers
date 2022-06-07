@@ -43,10 +43,6 @@ class FollowerListVC: UIViewController {
         navigationItem.rightBarButtonItem = plusButton
     }
     
-    @objc func addButtonTapped() {
-        print("add button tapped")
-    }
-    
     func getFollowers(username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
@@ -104,6 +100,10 @@ class FollowerListVC: UIViewController {
         DispatchQueue.main.async {
             self.diffableDataSource.apply(snapshot, animatingDifferences: true)
         }
+    }
+    
+    @objc func addButtonTapped() {
+        print("add button tapped")
     }
 }
 
