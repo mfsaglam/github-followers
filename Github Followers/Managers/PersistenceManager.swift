@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum PersistenceActionType {
+    case save, remove
+}
+
 enum PersistenceManager {
     
     enum Keys {
