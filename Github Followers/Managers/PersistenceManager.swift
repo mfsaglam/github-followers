@@ -24,7 +24,7 @@ enum PersistenceManager {
             case .success(let favorites):
                 break
             case .failure(let error):
-                break
+                completed(error)
             }
         }
     }
