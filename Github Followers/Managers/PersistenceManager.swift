@@ -18,10 +18,11 @@ enum PersistenceManager {
     }
     static private let defaults = UserDefaults.standard
     
-    static func update(with: Follower, actionType: PersistenceActionType, completed: @escaping (GFError?) -> Void) {
+    static func updateWith(favorite: Follower, actionType: PersistenceActionType, completed: @escaping (GFError?) -> Void) {
         retrieveFavorites { result in
             switch result {
-            case .success(let favorite):
+            case .success(let favorites):
+                let retrievedFavorites = favorites
                 switch actionType {
                 case .save:
                     break
