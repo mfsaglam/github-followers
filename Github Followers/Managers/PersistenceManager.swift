@@ -22,10 +22,14 @@ enum PersistenceManager {
         retrieveFavorites { result in
             switch result {
             case .success(let favorites):
-                let retrievedFavorites = favorites
+                var retrievedFavorites = favorites
                 switch actionType {
                 case .save:
-                    break
+                    guard !retrievedFavorites.contains(favorite) else {
+                        completed(.alreadyInFavorites)
+                        return
+                    }
+                    retrievedFavorites.append(favorite)
                 case .remove:
                     break
                 }
