@@ -22,7 +22,12 @@ enum PersistenceManager {
         retrieveFavorites { result in
             switch result {
             case .success(let favorite):
-                break
+                switch actionType {
+                case .save:
+                    break
+                case .remove:
+                    break
+                }
             case .failure(let error):
                 completed(error)
             }
