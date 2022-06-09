@@ -23,8 +23,16 @@ class FavoriteCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure() {
+    private func configure() {
+        addSubview(avatarImageView)
+        addSubview(usernameLabel)
         
+        accessoryType = .disclosureIndicator
+        let padding: CGFloat = 12
+        
+        NSLayoutConstraint.activate([
+        
+        ])
     }
     
 }
