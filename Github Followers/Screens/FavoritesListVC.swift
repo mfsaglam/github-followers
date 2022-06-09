@@ -8,6 +8,9 @@
 import UIKit
 
 class FavoritesListVC: UIViewController {
+    
+    let tableView = UITableView()
+    var favorites: [Follower] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
