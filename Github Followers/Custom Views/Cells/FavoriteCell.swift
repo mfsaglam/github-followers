@@ -8,6 +8,10 @@
 import UIKit
 
 class FavoriteCell: UITableViewCell {
-
+    
+    static let reuseID = "FavoriteCell"
+    
+    let avatarImageView = GFAvatarImageView(frame: .zero)
+    let usernameLabel = GFTitleLabel(alignment: .left, fontSize: 26)
 
 }
