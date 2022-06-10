@@ -16,6 +16,7 @@ class FavoritesListVC: UIViewController {
         super.viewDidLoad()
         configure()
         getFavorites()
+        configureTableView()
     }
     
     func configure() {
@@ -36,6 +37,26 @@ class FavoritesListVC: UIViewController {
     }
     
     func configureTableView() {
-        
+        view.addSubview(tableView)
+        tableView.frame = view.bounds
+        tableView.rowHeight = 80
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
     }
+}
+
+extension FavoritesListVC:UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID) as! FavoriteCell
+        let favorite = favorites[indexPath.row]
+        cell.set(favorite: favorite)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favorites.count
+    }
+    
+    
 }
