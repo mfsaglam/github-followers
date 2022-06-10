@@ -34,4 +34,8 @@ class FavoritesListVC: UIViewController {
             }
         }
     }
+    
+    func configureTableView() {
+        
+    }
 }
