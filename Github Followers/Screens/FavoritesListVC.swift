@@ -28,7 +28,7 @@ class FavoritesListVC: UIViewController {
         PersistenceManager.retrieveFavorites { result in
             switch result {
             case .success(let favorites):
-                print(favorites)
+                self.favorites = favorites
             case .failure(let error):
                 print(error.rawValue)
             }
