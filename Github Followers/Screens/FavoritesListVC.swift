@@ -36,6 +36,7 @@ class FavoritesListVC: UIViewController {
                     self.favorites = favorites
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        self.view.bringSubviewToFront(self.tableView)
                     }
                 }
             case .failure(let error):
