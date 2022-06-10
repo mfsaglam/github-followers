@@ -14,12 +14,16 @@ class FavoritesListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        getFavorites()
+        configureUI()
         configureTableView()
     }
     
-    func configure() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getFavorites()
+    }
+    
+    private func configureUI() {
         view.backgroundColor = .systemBackground
         title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -40,7 +44,7 @@ class FavoritesListVC: UIViewController {
                     }
                 }
             case .failure(let error):
-                print(error.rawValue)
+                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
