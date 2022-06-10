@@ -30,7 +30,14 @@ class FavoritesListVC: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let favorites):
-                self.favorites = favorites
+                if favorites.isEmpty {
+                    self.showEmptyStateView(with: "No followers yet,/n Go favorite some users on followers screen.", in: self.view)
+                } else {
+                    self.favorites = favorites
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
             case .failure(let error):
                 print(error.rawValue)
             }
