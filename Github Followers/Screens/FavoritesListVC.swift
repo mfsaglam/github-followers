@@ -35,7 +35,7 @@ class FavoritesListVC: UIViewController {
             switch result {
             case .success(let favorites):
                 if favorites.isEmpty {
-                    self.showEmptyStateView(with: "No followers yet,/n Go favorite some users on followers screen.", in: self.view)
+                    self.showEmptyStateView(with: "No followers yet,\n Go favorite some users.", in: self.view)
                 } else {
                     self.favorites = favorites
                     DispatchQueue.main.async {
@@ -78,6 +78,20 @@ extension FavoritesListVC:UITableViewDelegate, UITableViewDataSource {
         destVC.title = favorite.login
         
         navigationController?.pushViewController(destVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        
+        let favorite = favorites[indexPath.row]
+        favorites.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .left)
+        
+        PersistenceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] error in
+            guard let self = self else { return }
+            guard let error = error else { return }
+            self.presentGFAlertOnMainThread(title: "Unable to remove", message: error.rawValue, buttonTitle:"Ok")
+        }
     }
     
     
