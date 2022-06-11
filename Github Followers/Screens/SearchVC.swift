@@ -13,6 +13,8 @@ class SearchVC: UIViewController {
     let usernameTextField = GFTextField()
     let getFollowersButton = GFButton(color: .systemBlue, title: "Get Followers")
     
+    var logoImageViewTopConstaint: NSLayoutConstraint!
+    
     var isUsernameEntered: Bool {
         return !usernameTextField.text!.isEmpty
     }
@@ -26,11 +28,12 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     private func createDismissKeyboardTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture )
     }
     
@@ -41,7 +44,10 @@ class SearchVC: UIViewController {
             return
         }
         
+
         let followerListVC = FollowerListVC(username: usernameTextField.text!)
+
+        usernameTextField.resignFirstResponder()
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
@@ -59,7 +65,11 @@ class SearchVC: UIViewController {
         getFollowersButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside )
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")
+        logoImageView.image = Images.ghLogo
+        
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+        
+        logoImageViewTopConstaint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
