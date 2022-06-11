@@ -33,7 +33,7 @@ class SearchVC: UIViewController {
     }
     
     private func createDismissKeyboardTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture )
     }
     
@@ -66,7 +66,7 @@ class SearchVC: UIViewController {
         getFollowersButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside )
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")
+        logoImageView.image = Images.ghLogo
         
         let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
         
