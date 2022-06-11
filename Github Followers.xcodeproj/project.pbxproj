@@ -15,6 +15,7 @@
 		1230E890282D5E6500A4903B /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1230E88F282D5E6500A4903B /* FollowerCell.swift */; };
 		1230E892282D610000A4903B /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1230E891282D610000A4903B /* GFAvatarImageView.swift */; };
 		1243DD98284A765F00B0D8AB /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1243DD97284A765F00B0D8AB /* GFRepoItemVC.swift */; };
+		124F70042854E510004F3BC1 /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124F70032854E510004F3BC1 /* GFTabBarController.swift */; };
 		12526C422852849900A8354C /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12526C412852849900A8354C /* FavoriteCell.swift */; };
 		12637724282983550035BB7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12637723282983550035BB7A /* NetworkManager.swift */; };
 		1263772A282A9FE80035BB7A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12637729282A9FE80035BB7A /* ErrorMessage.swift */; };
@@ -52,6 +53,7 @@
 		1230E88F282D5E6500A4903B /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		1230E891282D610000A4903B /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		1243DD97284A765F00B0D8AB /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
+		124F70032854E510004F3BC1 /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 		12526C412852849900A8354C /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		12637723282983550035BB7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		12637729282A9FE80035BB7A /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 				12526C412852849900A8354C /* FavoriteCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		124F70022854E4D5004F3BC1 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				124F70032854E510004F3BC1 /* GFTabBarController.swift */,
+			);
+			path = TabBarControllers;
 			sourceTree = "<group>";
 		};
 		12637728282A9FD60035BB7A /* Utilities */ = {
@@ -220,6 +230,7 @@
 		12D827662827B60900B11E7D /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				124F70022854E4D5004F3BC1 /* TabBarControllers */,
 				12B84D1B2837C6F000486075 /* Labels */,
 				12B84D1A2837C6A300486075 /* ViewControllers */,
 				12B84D192837C69500486075 /* ImageViews */,
@@ -373,6 +384,7 @@
 				129BA7F2281F325A005251B7 /* SceneDelegate.swift in Sources */,
 				126BB99A2826540600363534 /* GFBodyLabel.swift in Sources */,
 				1230E890282D5E6500A4903B /* FollowerCell.swift in Sources */,
+				124F70042854E510004F3BC1 /* GFTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
