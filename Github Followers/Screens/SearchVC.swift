@@ -13,6 +13,8 @@ class SearchVC: UIViewController {
     let usernameTextField = GFTextField()
     let getFollowersButton = GFButton(color: .systemBlue, title: "Get Followers")
     
+    var logoImageViewTopConstaint: NSLayoutConstraint!
+    
     var isUsernameEntered: Bool {
         return !usernameTextField.text!.isEmpty
     }
@@ -26,6 +28,7 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -40,6 +43,8 @@ class SearchVC: UIViewController {
             presentGFAlertOnMainThread(title: "No username entered", message: "Please enter a username and try again.", buttonTitle: "Ok")
             return
         }
+        
+        usernameTextField.resignFirstResponder()
         
         let followerListVC = FollowerListVC()
         followerListVC.username = usernameTextField.text
@@ -62,6 +67,10 @@ class SearchVC: UIViewController {
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = Images.ghLogo
+        
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+        
+        logoImageViewTopConstaint = logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),

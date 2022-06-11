@@ -35,7 +35,7 @@ class FavoritesListVC: UIViewController {
             switch result {
             case .success(let favorites):
                 if favorites.isEmpty {
-                    self.showEmptyStateView(with: "No followers yet,\n Go favorite some users.", in: self.view)
+                    self.showEmptyStateView(with: "No favorites yet,\n Go favorite some users.", in: self.view)
                 } else {
                     self.favorites = favorites
                     DispatchQueue.main.async {
