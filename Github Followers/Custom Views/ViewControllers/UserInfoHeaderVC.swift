@@ -58,7 +58,7 @@ class UserInfoHeaderVC: UIViewController {
         view.addSubview(bioLabel)
         
         locationImageView.translatesAutoresizingMaskIntoConstraints = false
-        locationImageView.image = UIImage(systemName: "mappin.and.ellipse")
+        locationImageView.image = SFSymbols.locations
         locationImageView.tintColor = .secondaryLabel
     }
     
