@@ -55,9 +55,8 @@ class GFAlertVC: UIViewController {
     }
     
     private func configureAlertView() {
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(messageLabel)
-        containerView.addSubview(button)
+  
+        containerView.addSubviews(titleLabel, messageLabel, button)
         
         titleLabel.text = alertTitle ?? "Something went wrong"
         messageLabel.text = message ?? "Unable to complete request"

@@ -37,6 +37,7 @@
 		12D8276F2827DFA400B11E7D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D8276E2827DFA400B11E7D /* User.swift */; };
 		12DD686A284BEA7100A905C6 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DD6869284BEA7100A905C6 /* GFFollowerItemVC.swift */; };
 		12E553C7283EBF580067B309 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E553C6283EBF580067B309 /* UserInfoVC.swift */; };
+		12E5EBF02860D9D4003613B8 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E5EBEF2860D9D4003613B8 /* UIView+Ext.swift */; };
 		12F353BC2824DF5F0055F5EA /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F353BB2824DF5F0055F5EA /* SearchVC.swift */; };
 		12F353BE2824DF7A0055F5EA /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F353BD2824DF7A0055F5EA /* FavoritesListVC.swift */; };
 		12F5637428429C7800F08404 /* UserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5637328429C7800F08404 /* UserInfoHeaderVC.swift */; };
@@ -77,6 +78,7 @@
 		12D8276E2827DFA400B11E7D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		12DD6869284BEA7100A905C6 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		12E553C6283EBF580067B309 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		12E5EBEF2860D9D4003613B8 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		12F353BB2824DF5F0055F5EA /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		12F353BD2824DF7A0055F5EA /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		12F5637328429C7800F08404 /* UserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHeaderVC.swift; sourceTree = "<group>"; };
@@ -151,12 +153,12 @@
 			isa = PBXGroup;
 			children = (
 				1230E88D282D5D1B00A4903B /* Managers */,
-				12637728282A9FD60035BB7A /* Utilities */,
 				12D8276D2827DC4F00B11E7D /* Model */,
-				12D827682827BC6200B11E7D /* Support */,
-				12D827672827BBF600B11E7D /* Extensions */,
-				12D827662827B60900B11E7D /* Custom Views */,
 				12D827652827B5DE00B11E7D /* Screens */,
+				12D827662827B60900B11E7D /* Custom Views */,
+				12D827672827BBF600B11E7D /* Extensions */,
+				12D827682827BC6200B11E7D /* Support */,
+				12637728282A9FD60035BB7A /* Utilities */,
 				129BA7FD281F325D005251B7 /* Info.plist */,
 			);
 			path = "Github Followers";
@@ -248,6 +250,7 @@
 			children = (
 				126BB99D282669DB00363534 /* UIViewController+Ext.swift */,
 				12874C242845614A00F32830 /* Date+Ext.swift */,
+				12E5EBEF2860D9D4003613B8 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E5EBF02860D9D4003613B8 /* UIView+Ext.swift in Sources */,
 				12F5637628429D1800F08404 /* GFSecondaryTitleLabel.swift in Sources */,
 				1243DD98284A765F00B0D8AB /* GFRepoItemVC.swift in Sources */,
 				126BB998282650B600363534 /* GFTitleLabel.swift in Sources */,
