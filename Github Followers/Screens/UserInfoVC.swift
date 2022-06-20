@@ -104,8 +104,7 @@ class UserInfoVC: UIViewController {
     }
 }
 
-extension UserInfoVC: ItemInfoVCDelegate {
-    
+extension UserInfoVC: GFRepoItemVCDelegate, GFFollowerItemVCDelegate {
     func didTapGithubProfile(user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Url is invalid.", message: "Please check url is correct or try again later.", buttonTitle: "Ok")
@@ -115,9 +114,8 @@ extension UserInfoVC: ItemInfoVCDelegate {
     }
     
     func didTapGetFollowers(user: User) {
-        //dismissVC
         delegate?.didRequestFollowers(for: user.login)
     }
-    
-    
 }
+
+
