@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol GFFollowerItemVCDelegate: AnyObject {
+    func didTapGetFollowers(user: User)
+}
+
 class GFFollowerItemVC: GFItemInfoVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
     }
+    
+    weak var delegate: GFFollowerItemVCDelegate?
     
     private func configureItems() {
         itemInfoViewOne.set(type: .followers, with: user.followers)

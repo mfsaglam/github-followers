@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol GFRepoItemVCDelegate: AnyObject {
+    func didTapGithubProfile(user: User)
+}
+
 class GFRepoItemVC: GFItemInfoVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureItems()
     }
+    
+    weak var delegate: GFRepoItemVCDelegate?
     
     private func configureItems() {
         itemInfoViewOne.set(type: .repos, with: user.publicRepos)
