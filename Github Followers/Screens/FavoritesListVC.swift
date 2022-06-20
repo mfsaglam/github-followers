@@ -56,6 +56,7 @@ class FavoritesListVC: GFDataLoadingVC {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
+        tableView.removeExcessCells()
     }
 }
 
