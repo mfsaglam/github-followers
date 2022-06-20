@@ -57,10 +57,8 @@ class SearchVC: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .systemBackground
-
-        view.addSubview(logoImageView)
-        view.addSubview(usernameTextField)
-        view.addSubview(getFollowersButton)
+        
+        view.addSubviews(logoImageView, usernameTextField, getFollowersButton)
         
         getFollowersButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside )
         
