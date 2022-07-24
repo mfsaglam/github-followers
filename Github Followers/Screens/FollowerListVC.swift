@@ -57,27 +57,20 @@ class FollowerListVC: GFDataLoadingVC {
     func getFollowers(username: String, page: Int) {
         isLoadingMoreFollowers = true
         showLoadingView()
-        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-            case .success(let followers):
-                if followers.count < 100 { self.hasMoreFollower = false }
-                self.followers.append(contentsOf: followers)
-                
-                if self.followers.isEmpty {
-                    let message = "This user doesn't have any followers. Go follow them 😀."
-                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
-                    return
+        
+        Task {
+            do {
+                let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                updateData(data: followers)
+                dismissLoadingView()
+            } catch {
+                if let gfError = error as? GFError {
+                    presentGFAlert(title: "Bad Stuff Happened", message: gfError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultErrorGFAlert()
                 }
-                
-                self.updateData(data: self.followers)
-                
-            case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Bad Stuff Happend", message: error.rawValue, buttonTitle: "Ok")
+                dismissLoadingView()
             }
-            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -126,13 +119,13 @@ class FollowerListVC: GFDataLoadingVC {
                 PersistenceManager.updateWith(favorite: favorite, actionType: .save) { [weak self] error in
                     guard let self = self else { return }
                     guard let error = error  else {
-                        self.presentGFAlertOnMainThread(title: "Success!", message: "You've added this user in your facorites list.", buttonTitle: "Ok")
+                        self.presentGFAlert(title: "Success!", message: "You've added this user in your facorites list.", buttonTitle: "Ok")
                         return
                     }
-                    self.presentGFAlertOnMainThread(title: "Something went erong", message: error.rawValue, buttonTitle: "Ok")
+                    self.presentGFAlert(title: "Something went erong", message: error.rawValue, buttonTitle: "Ok")
                 }
             case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Something went wrong.", message: error.rawValue, buttonTitle: "Ok")
+                self.presentGFAlert(title: "Something went wrong.", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
