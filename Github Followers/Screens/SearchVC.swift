@@ -11,7 +11,7 @@ class SearchVC: UIViewController {
     
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
-    let getFollowersButton = GFButton(color: .systemBlue, title: "Get Followers")
+    let getFollowersButton = GFButton(color: .systemBlue, title: "Get Followers", systemImageName: "person.3")
     
     var logoImageViewTopConstaint: NSLayoutConstraint!
     
