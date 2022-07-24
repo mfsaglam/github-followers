@@ -110,22 +110,29 @@ class FollowerListVC: GFDataLoadingVC {
     @objc func addButtonTapped() {
         showLoadingView()
         
-        NetworkManager.shared.getUser(for: username) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            switch result {
-            case .success(let user):
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUser(for: username)
                 let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
                 PersistenceManager.updateWith(favorite: favorite, actionType: .save) { [weak self] error in
                     guard let self = self else { return }
                     guard let error = error  else {
-                        self.presentGFAlert(title: "Success!", message: "You've added this user in your facorites list.", buttonTitle: "Ok")
+                        DispatchQueue.main.async {
+                            self.presentGFAlert(title: "Success!", message: "You've added this user in your facorites list.", buttonTitle: "Ok")
+                        }
                         return
                     }
-                    self.presentGFAlert(title: "Something went erong", message: error.rawValue, buttonTitle: "Ok")
+                    DispatchQueue.main.async {
+                        self.presentGFAlert(title: "Something went erong", message: error.rawValue, buttonTitle: "Ok")
+                    }
                 }
-            case .failure(let error):
-                self.presentGFAlert(title: "Something went wrong.", message: error.rawValue, buttonTitle: "Ok")
+                dismissLoadingView()
+            } catch {
+                if let gfError = error as? GFError {
+                    presentGFAlert(title: "Something went wrong", message: gfError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultErrorGFAlert()
+                }
             }
         }
     }
