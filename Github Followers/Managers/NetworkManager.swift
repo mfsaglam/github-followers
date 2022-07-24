@@ -60,30 +60,23 @@ class NetworkManager {
     }
 
     
-    func downloadImage(from url: String, completed: @escaping (UIImage?) -> Void) {
+    func downloadImage(from url: String) async -> UIImage? {
         let cacheKey = NSString(string: url)
         
         if let image = cache.object(forKey: cacheKey) {
-            completed(image)
-            return
+            return image
+        }
+        guard let url = URL(string: url) else {
+            return nil
         }
         
-        guard let url = URL(string: url) else { return }
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            
-            guard let self = self,
-                  error == nil,
-                  let response = response as? HTTPURLResponse, response.statusCode == 200,
-                  let data = data,
-                  let image = UIImage(data: data) else {
-                    completed(nil)
-                    return
-                }
-            
-            self.cache.setObject(image, forKey: cacheKey)
-            completed(image)
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            guard let image = UIImage(data: data) else { return nil }
+            cache.setObject(image, forKey: cacheKey)
+            return image
+        } catch {
+            return nil
         }
-        
-        task.resume()
     }
 }
