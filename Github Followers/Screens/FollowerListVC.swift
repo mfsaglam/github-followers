@@ -61,6 +61,7 @@ class FollowerListVC: GFDataLoadingVC {
         Task {
             do {
                 let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                self.followers = followers
                 updateData(data: followers)
                 dismissLoadingView()
             } catch {
