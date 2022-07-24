@@ -15,6 +15,8 @@ class NetworkManager {
     
     private init() {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+
     }
     
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
@@ -37,42 +39,26 @@ class NetworkManager {
         }
     }
     
-    func getUser(for username: String, completionHandler: @escaping (Result<User, GFError>) -> Void) {
+    func getUser(for username: String) async throws -> User {
         let endpoint = baseUrl + "\(username)"
         
         guard let url = URL(string: endpoint) else {
-            completionHandler(.failure(.invalidUsername))
-            return
+            throw GFError.invalidUsername
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let _ = error {
-                completionHandler(.failure(.unableToComplete))
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completionHandler(.failure(.invalidResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completionHandler(.failure(.invalidData))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                decoder.dateDecodingStrategy = .iso8601
-                let user = try decoder.decode(User.self, from: data)
-                completionHandler(.success(user))
-            } catch {
-                completionHandler(.failure(.invalidData))
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw GFError.invalidResponse
         }
         
-        task.resume()
+        do {
+            return try decoder.decode(User.self, from: data)
+        } catch {
+            throw GFError.invalidData
+        }
     }
+
     
     func downloadImage(from url: String, completed: @escaping (UIImage?) -> Void) {
         let cacheKey = NSString(string: url)
