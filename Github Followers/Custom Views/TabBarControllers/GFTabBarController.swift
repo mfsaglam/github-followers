@@ -15,8 +15,7 @@ class GFTabBarController: UITabBarController {
         viewControllers = [createSearchVC(), createFavoritesListVC()]
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .white
+            appearance.backgroundEffect = .some(UIBlurEffect(style: .systemThinMaterial))
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         }
