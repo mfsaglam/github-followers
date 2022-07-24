@@ -126,7 +126,6 @@ class FollowerListVC: GFDataLoadingVC {
                         self.presentGFAlert(title: "Something went erong", message: error.rawValue, buttonTitle: "Ok")
                     }
                 }
-                dismissLoadingView()
             } catch {
                 if let gfError = error as? GFError {
                     presentGFAlert(title: "Something went wrong", message: gfError.rawValue, buttonTitle: "Ok")
@@ -134,6 +133,7 @@ class FollowerListVC: GFDataLoadingVC {
                     presentDefaultErrorGFAlert()
                 }
             }
+            dismissLoadingView()
         }
     }
 }
