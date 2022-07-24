@@ -40,13 +40,17 @@ class UserInfoVC: UIViewController {
     }
     
     func getUser() {
-        NetworkManager.shared.getUser(for: username) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async { self.configureUIElements(with: user) }
-            case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "ok")
+        
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUser(for: username)
+                configureUIElements(with: user)
+            } catch {
+                if let gfError = error as? GFError {
+                    presentGFAlert(title: "Something went wrong", message: gfError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultErrorGFAlert()
+                }
             }
         }
     }
@@ -107,7 +111,7 @@ class UserInfoVC: UIViewController {
 extension UserInfoVC: GFRepoItemVCDelegate, GFFollowerItemVCDelegate {
     func didTapGithubProfile(user: User) {
         guard let url = URL(string: user.htmlUrl) else {
-            presentGFAlertOnMainThread(title: "Url is invalid.", message: "Please check url is correct or try again later.", buttonTitle: "Ok")
+            presentGFAlert(title: "Url is invalid.", message: "Please check url is correct or try again later.", buttonTitle: "Ok")
             return
         }
         presentSafariVC(with: url)
