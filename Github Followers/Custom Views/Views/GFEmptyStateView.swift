@@ -39,14 +39,14 @@ class GFEmptyStateView: UIView {
         logoImageView.image = Images.emptyStateLogo
         
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -150),
-            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 40),
-            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -150),
+            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 40),
+            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             
-            logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
+            logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),
-            logoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 170),
-            logoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 40)
+            logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 170),
+            logoImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 40)
         ])
     }
 }
